@@ -1,0 +1,39 @@
+@mixin buttonHoverStyle() {
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
+@mixin generalStyle() {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: white;
+  font-family: Poppins;
+}
+
+@mixin displayFlex($flex-direct, $al-items, $just-content) {
+  display: flex;
+  flex-direction: $flex-direct;
+  align-items: $al-items;
+  justify-content: $just-content;
+}
+
+@mixin horizontalLineStyle() {
+  background-color: $tertiary;
+  height: 5px;
+  border: none;
+}
+
+@mixin paragraphStyle() {
+  font-size: 1rem;
+  line-height: 2rem;
+}
+
+@mixin headingTwoStyle() {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: $tertiary;
+}
+$primary: white;
+$charcoal: #171717;
+$tertiary: #b33f40;
