@@ -328,6 +328,12 @@ footer nav section img:hover {
   .achievements section ul li {
     font-size: 1.2rem;
   }
+  footer nav section h3 {
+    font-size: 3rem;
+  }
+  footer nav section p {
+    font-size: 1.2rem;
+  }
 }
 
 @media only screen and (min-width: 992px) {
@@ -374,7 +380,7 @@ footer nav section img:hover {
     font-size: 3rem;
   }
   footer nav section p {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
   }
 }
 
