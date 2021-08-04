@@ -66,6 +66,10 @@ body {
   content: '"';
 }
 
+.image-section section .titles {
+  opacity: 0;
+}
+
 .image-section::before {
   content: "";
   position: absolute;
@@ -114,10 +118,10 @@ body {
 }
 
 .cover .cover-content span {
-  font-family: cursive;
+  font-family: "Dancing Script", cursive;
   font-size: 2.5rem;
   font-weight: 800;
-  color: #b33f40;
+  color: white;
   -webkit-transform: translateY(300%);
           transform: translateY(300%);
 }
@@ -294,6 +298,10 @@ footer nav section h3 {
   color: #b33f40;
 }
 
+footer nav section h3 span {
+  color: #b33f40;
+}
+
 footer nav section hr {
   background-color: #b33f40;
   height: 5px;
@@ -456,7 +464,7 @@ footer nav section img:hover {
     width: 50%;
   }
   .cover .cover-content span {
-    font-size: 5rem;
+    font-size: 6rem;
   }
 }
 
