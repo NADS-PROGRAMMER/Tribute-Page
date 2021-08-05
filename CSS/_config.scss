@@ -1,8 +1,6 @@
-@mixin buttonHoverStyle() {
-  cursor: pointer;
-  transform: scale(1.1);
-}
-
+/**
+  This is the style for default in all the elements.
+*/
 @mixin generalStyle() {
   margin: 0;
   padding: 0;
@@ -11,6 +9,20 @@
   font-family: Poppins;
 }
 
+/**
+  This is the style for the button
+  when gets hovered.
+*/
+@mixin buttonHoverStyle() {
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
+/**
+  Mixin for the display flex property.
+  Since some of the elements and section 
+  are set to this display, we need to reuse only the mixin.
+*/
 @mixin displayFlex($flex-direct, $al-items, $just-content) {
   display: flex;
   flex-direction: $flex-direct;
@@ -18,22 +30,44 @@
   justify-content: $just-content;
 }
 
+/**
+  Mixin/Display for all the horizontal lines 
+  across the page.
+*/
 @mixin horizontalLineStyle() {
   background-color: $tertiary;
   height: 5px;
   border: none;
 }
 
+/**
+  Mixin for all the paragraphs in the page.
+*/
 @mixin paragraphStyle() {
   font-size: 1rem;
   line-height: 2rem;
 }
 
+/**
+  Mixin for all the h2 in the page.
+*/
 @mixin headingTwoStyle() {
   font-size: 1.5rem;
   margin-bottom: 0.5rem;
   color: $tertiary;
 }
+
+@mixin coverIntroStyle() {
+  @include displayFlex(row, center, center);
+  background: $charcoal;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+// Variables used.
 $primary: white;
 $charcoal: #171717;
 $tertiary: #b33f40;

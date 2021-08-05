@@ -65,20 +65,9 @@ body {
 
 // A division to cover when the page is loaded and it animates automatically
 .cover {
-  background: $charcoal;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 1;
+  @include coverIntroStyle();
   .cover-content {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    @include displayFlex(column, none, center);
     overflow: hidden;
     padding: 1.2rem;
     span {
@@ -203,10 +192,7 @@ footer {
   height: auto;
   padding: 3rem 0;
   nav {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-evenly;
+    @include displayFlex(column, center, space-evenly);
     height: 100%;
     section {
       margin: 0.5rem 0;
@@ -237,6 +223,7 @@ footer {
     }
   }
 }
+
 // MEDIA QUERIES
 @media only screen and (min-width: 576px) {
   html {
@@ -257,6 +244,14 @@ footer {
   html {
     font-size: 16px;
   }
+
+  .cover {
+    .cover-content {
+      span {
+        font-size: 4.5rem;
+      }
+    }
+  }
   .image-section {
     section {
       width: 80%;
@@ -270,7 +265,7 @@ footer {
   }
 
   .about {
-    width: 60%;
+    width: 65%;
     .title-section {
       h2 {
         font-size: 3rem;
@@ -436,6 +431,7 @@ footer {
     }
   }
 }
+
 @media only screen and (max-width: 320px) {
   .image-section {
     background-position: center center;

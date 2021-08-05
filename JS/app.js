@@ -32,12 +32,17 @@ const isVisible = (element) => {
 
     const elem = element.getBoundingClientRect();
 
-    return (elem.top > 0 || elem.bottom > 0);
+    return (elem.top >= 0 || elem.bottom >= 0);
 }
 
+function isGreaterThanOffset(element) {
+
+    let offset = element.offsetTop - window.pageYOffset;
+
+    return (offset >= 0) && (offset <= window.innerHeight) ;  
+}
 document.addEventListener('scroll', () => {
 
-    
     animationForMainSection();
     aboutDivAnimation();
     messageAnimation();
@@ -46,34 +51,42 @@ document.addEventListener('scroll', () => {
 
 function animateElement(id, element) {
 
-    if (isVisible(element)) {
-        gsap.to(id, {opacity: 1, duration: 1, ease: "power1"});
-        gsap.to(id, {y: "0%", duration: 1, ease: "power"});
+    let top = element.getBoundingClientRect().top;
+    let bottom = element.getBoundingClientRect().bottom;
+
+    if ((element.getBoundingClientRect().top <= window.innerHeight)) {
+        gsap.to(id, {opacity: 1, duration: 2, ease: "power1"});
+        gsap.to(id, {y: "0%", duration: 2, ease: "power"});
     } 
     else {
 
         gsap.to(id, {opacity: 0, ease: "power1"});
         gsap.to(id, {y: "5%", ease: "power1"});
+        element.style.opacity = '0';
     } 
 
-    
+    if ((element.getBoundingClientRect().bottom >= 0)) {
+        gsap.to(id, {opacity: 1, duration: 2, ease: "power1"});
+        gsap.to(id, {y: "0%", duration: 2, ease: "power"});
+    } 
+    else {
+
+        gsap.to(id, {opacity: 0, ease: "power1"});
+        gsap.to(id, {y: "5%", ease: "power1"});
+        element.style.opacity = '0';
+    }
 } 
 
 function animationForMainSection() {
 
     let titleDiv = document.querySelector('.title-section');
-    let hr = document.querySelector('#title-hr');
 
-    if (isVisible(titleDiv)) {
+    if (isVisible(titleDiv)) 
         gsap.to('.titles',  {y: "0%", duration: .5, ease: "power1", stagger: 0.2});
-    }
-    else{
+    else
          gsap.to('.titles',  {y: "300%"});
-    }
 }
 
-
-// Animation of the ABOUT division.
 function aboutDivAnimation() {
 
     let aboutTitle = document.querySelector('#about-title');
