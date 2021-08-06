@@ -378,6 +378,10 @@ footer nav section img:hover {
   html {
     font-size: 16px;
   }
+  .message,
+  .achievements {
+    width: 60%;
+  }
   .cover .cover-content span {
     font-size: 4.5rem;
   }
@@ -398,10 +402,6 @@ footer nav section img:hover {
   }
   .about p {
     font-size: 1.5rem;
-  }
-  .message,
-  .achievements {
-    width: 60%;
   }
   .message .message-content h2 {
     font-size: 3rem;

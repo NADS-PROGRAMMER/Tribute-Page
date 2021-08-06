@@ -57,6 +57,7 @@
   color: $tertiary;
 }
 
+// This the general style for the cover intro of the page.
 @mixin coverIntroStyle() {
   @include displayFlex(row, center, center);
   background: $charcoal;

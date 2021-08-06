@@ -6,7 +6,7 @@ var tl = gsap.timeline({ repeat: -1, repeatDelay: 1 });
 document.documentElement.style.overflowY = 'hidden';
 timeline.to('.text', {y: "0%", duration: 2, stagger: 0.25, ease: "elastic"})
 timeline.to('.text', {color: "#b33f40", duration: 2, stagger: 0.25, ease: "power1"});
-timeline.to('.cover', {y: "-100%", duration: 1});
+timeline.to('.cover', {y: "-100%", duration: .5});
 
 timeline.to('.titles',  {y: "0%", opacity: "1", duration: 2, ease: "power1", stagger: 0.25});
 timeline.from('.about-items', {opacity: 0, duration: .5, ease: "power1", stagger: 0.2}).then(() => document.documentElement.style.overflowY = 'scroll');
@@ -14,64 +14,56 @@ timeline.from('.about-items', {opacity: 0, duration: .5, ease: "power1", stagger
 tl.to('.footer-char', {color: '#fff', stagger: .25})
 tl.to('.footer-char', {color: '#b33f40', stagger: .25}, "-=1.5")
 
-
-const isInViewport = (element) => {
-
-    const elem = element.getBoundingClientRect();
-    return (
-        elem.top >= 0 &&
-        elem.left >= 0 &&
-        elem.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-        elem.right <= (window.innerWidth || document.documentElement.clientWidth)
-    );
-}
-
+/**
+ * Checks if the element is visible 
+ * in the page regardless if it is
+ * overflowing on device viewport height.
+ */
 const isVisible = (element) => {
 
+    // Get the object that consist of top and bottom property of element.
     const elem = element.getBoundingClientRect();
 
     return (elem.top >= 0 || elem.bottom >= 0);
 }
 
-function isGreaterThanOffset(element) {
-
-    let offset = element.offsetTop - window.pageYOffset;
-
-    return (offset >= 0) && (offset <= window.innerHeight) ;  
-}
 document.addEventListener('scroll', () => {
 
     animationForMainSection();
     aboutDivAnimation();
-    messageAnimation();
-    achievementsAnimation();
+    messageDivAnimation();
+    achievementsDivAnimation();
 })
 
+/**
+ * This is the method that responsible for animating
+ * all the elements in the page.
+ */
 function animateElement(id, element) {
 
-    let top = element.getBoundingClientRect().top;
-    let bottom = element.getBoundingClientRect().bottom;
+    /** I use destructuring because we only need two properties 
+     *  of the getBoundingClientRect() method.
+     */
+    const {top, bottom} = element.getBoundingClientRect();
 
-    if ((element.getBoundingClientRect().top <= window.innerHeight)) {
-        gsap.to(id, {opacity: 1, duration: 2, ease: "power1"});
-        gsap.to(id, {y: "0%", duration: 2, ease: "power"});
+    if ((top <= window.innerHeight)) {
+        gsap.to(id, {y: "0%", duration: 1, ease: "power"});
+        gsap.to(id, {opacity: 1, duration: 1, ease: "power1"});
     } 
     else {
 
         gsap.to(id, {opacity: 0, ease: "power1"});
-        gsap.to(id, {y: "5%", ease: "power1"});
-        element.style.opacity = '0';
+        gsap.to(id, {y: "30%", ease: "power1"});
     } 
 
-    if ((element.getBoundingClientRect().bottom >= 0)) {
-        gsap.to(id, {opacity: 1, duration: 2, ease: "power1"});
-        gsap.to(id, {y: "0%", duration: 2, ease: "power"});
+    if ((bottom >= 0)) {
+        gsap.to(id, {y: "0%", duration: 1, ease: "power"});
+        gsap.to(id, {opacity: 1, duration: 1, ease: "power1"});
     } 
     else {
 
         gsap.to(id, {opacity: 0, ease: "power1"});
-        gsap.to(id, {y: "5%", ease: "power1"});
-        element.style.opacity = '0';
+        gsap.to(id, {y: "30%", ease: "power1"});
     }
 } 
 
@@ -85,6 +77,11 @@ function animationForMainSection() {
          gsap.to('.titles',  {y: "300%"});
 }
 
+/**
+ * This is the method for animating 
+ * all the elements in 'About' section
+ * of the webpage.
+ */
 function aboutDivAnimation() {
 
     let aboutTitle = document.querySelector('#about-title');
@@ -104,7 +101,12 @@ function aboutDivAnimation() {
     animateElement('#image4', image4);
 }
 
-function messageAnimation() {
+/**
+ * This is the method for animating 
+ * all of the elements in the 'Message' section 
+ * of the webpage.
+ */
+function messageDivAnimation() {
 
     let messageImage = document.querySelector('#message-image');
     let messageTitle = document.querySelector('#message-title');
@@ -117,7 +119,12 @@ function messageAnimation() {
     animateElement('#message-paragraph', messageParagraph);
 }
 
-function achievementsAnimation() {
+/**
+ * This is the function for animating 
+ * all of the elements in the 'Achievements' section
+ * of the webpage.
+ */
+function achievementsDivAnimation() {
 
     let achievementsTitle = document.querySelector('#achievements-title');
     let achievementsHr = document.querySelector('#achievements-hr');

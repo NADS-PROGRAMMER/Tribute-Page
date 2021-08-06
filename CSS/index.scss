@@ -245,61 +245,58 @@ footer {
     font-size: 16px;
   }
 
-  .cover {
-    .cover-content {
-      span {
-        font-size: 4.5rem;
-      }
-    }
-  }
-  .image-section {
-    section {
-      width: 80%;
-      h1 {
-        font-size: 4rem;
-      }
-      p {
-        font-size: 1.4rem;
-      }
-    }
-  }
-
-  .about {
-    width: 65%;
-    .title-section {
-      h2 {
-        font-size: 3rem;
-      }
-    }
-    p {
-      font-size: 1.5rem;
-    }
-  }
-
+  // Set the width of message and achievements section to 60% when it is min 768px.
   .message,
   .achievements {
     width: 60%;
   }
 
-  .message {
-    .message-content {
-      h2 {
-        font-size: 3rem;
-      }
-      p {
-        font-size: 1.5rem;
-      }
-    }
+  // Change the font size of the text Selena Gomez on Cover introduction.
+  .cover .cover-content span {
+    font-size: 4.5rem;
   }
 
+  // Container of the main photo with a title and subtitle.
+  .image-section section {
+    width: 80%;
+    h1 {
+      font-size: 4rem;
+    }
+    p {
+      font-size: 1.4rem;
+    }
+  } // end of style.
+
+  // Style of 'About' division in the page.
+  .about {
+    width: 65%;
+    .title-section h2 {
+      font-size: 3rem;
+    }
+    p {
+      font-size: 1.5rem;
+    }
+  } // end ofo style.
+
+  // Style for message section on the webpage.
+  .message .message-content {
+    h2 {
+      font-size: 3rem;
+    }
+    p {
+      font-size: 1.5rem;
+    }
+  }
+  // end of style.
+
+  // Style for the achievements section on the webpage.
   .achievements {
     width: 60%;
 
-    .title-section {
-      h2 {
-        font-size: 3rem;
-      }
+    .title-section h2 {
+      font-size: 3rem;
     }
+
     section {
       h3 {
         font-size: 1.5rem;
@@ -308,32 +305,27 @@ footer {
         font-size: 1.2rem;
       }
     }
-  }
+  } // end of style
 
-  footer {
-    nav {
-      section {
-        h3 {
-          font-size: 3rem;
-        }
-        p {
-          font-size: 1.2rem;
-        }
-      }
+  // Style for the h3 and p of the footer section
+  footer nav section {
+    h3 {
+      font-size: 3rem;
+    }
+    p {
+      font-size: 1.2rem;
     }
   }
-}
+} // END OF MEDIA QUERIES FOR (768px device screen size).
 
 @media only screen and (min-width: 992px) {
-  .image-section {
-    section {
-      width: 90%;
-      h1 {
-        font-size: 4rem;
-      }
-      p {
-        font-size: 2rem;
-      }
+  .image-section section {
+    width: 90%;
+    h1 {
+      font-size: 4rem;
+    }
+    p {
+      font-size: 2rem;
     }
   }
 
@@ -351,7 +343,6 @@ footer {
 
   .message {
     width: 80%;
-
     .message-content {
       h2 {
         font-size: 3rem;
@@ -365,11 +356,10 @@ footer {
   .achievements {
     width: 80%;
 
-    .title-section {
-      h2 {
-        font-size: 3rem;
-      }
+    .title-section h2 {
+      font-size: 3rem;
     }
+
     section {
       h3 {
         font-size: 1.5rem;
@@ -380,16 +370,12 @@ footer {
     }
   }
 
-  footer {
-    nav {
-      section {
-        h3 {
-          font-size: 3rem;
-        }
-        p {
-          font-size: 1.2rem;
-        }
-      }
+  footer nav section {
+    h3 {
+      font-size: 3rem;
+    }
+    p {
+      font-size: 1.2rem;
     }
   }
 }
@@ -412,28 +398,22 @@ footer {
     width: 50%;
   }
 
-  .cover {
-    .cover-content {
-      span {
-        font-size: 6rem;
-      }
-    }
+  .cover .cover-content span {
+    font-size: 6rem;
   }
-}
+} // END OF MEDIA QUERIES FOR (1200px device screen size)
 
 @media only screen and (min-width: 1400px) {
   .image-section {
     @include displayFlex(row, center, center);
-    section {
-      h1 {
-        font-size: 4.2rem;
-      }
+    section h1 {
+      font-size: 4.2rem;
     }
   }
-}
+} // END OF MEDIA QUERIES (1400px device screen size)
 
 @media only screen and (max-width: 320px) {
   .image-section {
     background-position: center center;
   }
-}
+} // END OF MEDIA QUERIES (320px max device screen size)
