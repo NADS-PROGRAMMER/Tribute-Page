@@ -1,5 +1,3 @@
-
-
 var timeline = gsap.timeline();
 var tl = gsap.timeline({ repeat: -1, repeatDelay: 1 });
 
